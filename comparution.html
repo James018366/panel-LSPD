@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparution · L.S.P.D</title>
+<meta name="description" content="Tableau de bord du Los Santos Police Department.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{if(sessionStorage.getItem('lspd-boot')==='1')document.documentElement.classList.add('booted')}catch(e){}</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-label="Chargement">
+  <div class="radar" aria-hidden="true"><i></i><i></i><b></b><img src="assets/logo.png" alt=""></div>
+  <div class="msg">ACCÈS AU TABLEAU DE BORD…</div>
+  <div class="track"><div class="fill"></div></div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo du LSPD">
+      <div><h1>L.S.P.D · Tableau de bord</h1><small>MDT · TERMINAL DE PATROUILLE</small></div>
+    </a>
+
+    <div class="clock" aria-live="off"><strong id="time">--:--:--</strong><br><span id="date"></span></div>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="index.html">Accueil</a>
+    <a href="frequences.html">Fréquences</a>
+    <a href="codes.html">Codes 10</a>
+    <a href="alertes.html">Alertes</a>
+    <a href="patrouilles.html">Patrouilles</a>
+    <a href="miranda.html">Miranda</a>
+    <a href="route.html">Vitesse</a>
+    <a href="comparution.html" class="on" aria-current="page">Comparution</a>
+    <a href="livret.html">Livret</a>
+  </nav>
+</header>
+
+<main>
+  <section id="comparution" class="reveal">
+    <div class="sec-h"><h2>Comparution immédiate</h2><span>CALCULATEUR</span></div>
+    <div class="panel">
+      <h3 class="doc-title" id="cp-stamp">Fait le …</h3>
+      <div class="cp-head">
+        <label>Service
+          <select id="cp-service"><option>LSPD</option><option>BCSD</option><option>SAHP</option></select>
+        </label>
+        <label>Agent<input id="cp-agent" placeholder="Matricule · Nom"></label>
+        <label>Avocat
+          <select id="cp-avocat"><option>Avocat non demandé</option><option>Avocat non disponible</option><option>Avocat commis d'office</option><option>Avocat présent</option></select>
+        </label>
+        <label>Prévenu · Nom<input id="cp-nom" placeholder="Nom"></label>
+        <label>Prévenu · Prénom<input id="cp-prenom" placeholder="Prénom"></label>
+      </div>
+
+      <div class="cp-add">
+        <div class="grow combo">
+          <label for="cp-search">Chef d'inculpation</label>
+          <div class="combo-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+            <input id="cp-search" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="cp-list" autocomplete="off" spellcheck="false" placeholder="Tape un article ou une infraction (ex. vol, 5102, fuite)…">
+            <button class="combo-toggle" id="cp-toggle" type="button" aria-label="Afficher toute la liste" tabindex="-1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+          </div>
+          <ul class="combo-list" id="cp-list" role="listbox" aria-label="Chefs d'inculpation" hidden></ul>
+        </div>
+        <button class="btn" id="cp-add" type="button">+ Ajouter</button>
+      </div>
+
+      <div class="cp-tablewrap">
+        <table class="cp-table">
+          <thead><tr>
+            <th scope="col">Article · Catégorie</th><th scope="col">Chef d'inculpation</th>
+            <th scope="col" class="c">Aggravante</th><th scope="col" class="c">Complicité</th>
+            <th scope="col" class="r">Amende</th><th scope="col" class="r">Peine</th><th scope="col"><span class="sr">Retirer</span></th>
+          </tr></thead>
+          <tbody id="cp-rows"></tbody>
+        </table>
+        <p class="cp-empty" id="cp-empty">Aucun chef ajouté. Tape une infraction ou ouvre la liste ci-dessus.</p>
+      </div>
+
+      <div class="cp-bottom">
+        <div class="cp-flags" id="cp-flags"></div>
+        <div class="cp-levels">
+          <div class="lv-title">Niveau de sanction</div>
+          <div class="lv" role="radiogroup" aria-label="Niveau de sanction" id="cp-levels"></div>
+          <p class="lv-who" id="cp-who"></p>
+        </div>
+        <div class="cp-totals">
+          <div class="tot"><span>Amendes · nominal</span><strong id="cp-fine">0 $</strong></div>
+          <div class="tot"><span>Détention · nominal</span><strong id="cp-jail">0 min</strong></div>
+          <label class="tot ed"><span>Amende retenue ($)</span><input id="cp-fine-k" type="number" min="0" step="100"></label>
+          <label class="tot ed"><span>Peine retenue (min)</span><input id="cp-jail-k" type="number" min="0" step="1"></label>
+        </div>
+      </div>
+      <div class="cp-actions">
+        <button class="btn" id="cp-copy" type="button">Copier la fiche</button>
+        <button class="btn ghost" id="cp-reset" type="button">Réinitialiser</button>
+      </div>
+      <ul class="cp-rules">
+        <li>Les circonstances atténuantes doivent être jugées de façon impartiale et juste.</li>
+        <li>Seul le Département de Justice (Procureur ou Juge) ou l'État-Major peuvent appliquer les circonstances aggravantes maximales.</li>
+        <li>En cas de concours d'infractions, les amendes se cumulent mais seule la plus longue détention s'applique (C.P. art. 3305).</li>
+        <li>Ce document est à joindre au dossier d'arrestation. Pensez à renseigner l'amende et la peine retenues.</li>
+        <li>Coefficients : MIN 3 ×0,25 · MIN 2 ×0,5 · MIN 1 ×0,75 · NOMINALE ×1 · MAX 1 ×1,25 · MAX 2 ×1,5 · MAX 3 ×2.</li>
+      </ul>
+    </div>
+  </section>
+  <div class="empty">AUCUN RÉSULTAT</div>
+</main>
+
+<footer>Obey &amp; Survive<small>Los Santos Police Department · Tableau de bord</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/justice.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

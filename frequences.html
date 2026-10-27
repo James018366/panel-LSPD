@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fréquences · L.S.P.D</title>
+<meta name="description" content="Tableau de bord du Los Santos Police Department.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{if(sessionStorage.getItem('lspd-boot')==='1')document.documentElement.classList.add('booted')}catch(e){}</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-label="Chargement">
+  <div class="radar" aria-hidden="true"><i></i><i></i><b></b><img src="assets/logo.png" alt=""></div>
+  <div class="msg">ACCÈS AU TABLEAU DE BORD…</div>
+  <div class="track"><div class="fill"></div></div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo du LSPD">
+      <div><h1>L.S.P.D · Tableau de bord</h1><small>MDT · TERMINAL DE PATROUILLE</small></div>
+    </a>
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="q" type="search" placeholder="Rechercher dans cette page…  ( / )" aria-label="Rechercher dans la page">
+    </label>
+    <div class="clock" aria-live="off"><strong id="time">--:--:--</strong><br><span id="date"></span></div>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="index.html">Accueil</a>
+    <a href="frequences.html" class="on" aria-current="page">Fréquences</a>
+    <a href="codes.html">Codes 10</a>
+    <a href="alertes.html">Alertes</a>
+    <a href="patrouilles.html">Patrouilles</a>
+    <a href="miranda.html">Miranda</a>
+    <a href="route.html">Vitesse</a>
+    <a href="comparution.html">Comparution</a>
+    <a href="livret.html">Livret</a>
+  </nav>
+</header>
+
+<main>
+  <section id="frequences" class="reveal">
+    <div class="sec-h"><h2>Fréquences radio</h2><span>CLIC = COPIER</span></div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Secteurs</h3>
+        <div class="freqs">
+          <button class="freq hl" data-copy="1 & 2" type="button"><span class="n"><i class="dot"></i>LSPD</span><span class="v">1 &amp; 2</span></button>
+          <button class="freq" data-copy="3 & 4" type="button"><span class="n"><i class="dot"></i>BCSD</span><span class="v">3 &amp; 4</span></button>
+          <button class="freq" data-copy="5 & 6" type="button"><span class="n"><i class="dot"></i>SAHP</span><span class="v">5 &amp; 6</span></button>
+          <button class="freq" data-copy="7 & 8" type="button"><span class="n"><i class="dot"></i>LSMD</span><span class="v">7 &amp; 8</span></button>
+          <button class="freq" data-copy="9 & 10" type="button"><span class="n"><i class="dot"></i>BCMD</span><span class="v">9 &amp; 10</span></button>
+          <button class="freq" data-copy="12" type="button"><span class="n"><i class="dot"></i>Gouv Sud</span><span class="v">12</span></button>
+          <button class="freq" data-copy="11" type="button"><span class="n"><i class="dot"></i>Gouv Nord</span><span class="v">11</span></button>
+          <button class="freq hl" data-copy="17" type="button"><span class="n"><i class="dot"></i>InterService</span><span class="v">17</span></button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Fréquences internes</h3>
+        <div class="freqs">
+          <button class="freq" data-copy="1.1" type="button"><span class="n"><i class="dot"></i>Opération 1</span><span class="v">1.1</span></button>
+          <button class="freq" data-copy="2.1" type="button"><span class="n"><i class="dot"></i>Opération 2</span><span class="v">2.1</span></button>
+          <button class="freq" data-copy="2.0" type="button"><span class="n"><i class="dot"></i>LSPA</span><span class="v">2.0</span></button>
+          <button class="freq" data-copy="2.5" type="button"><span class="n"><i class="dot"></i>NOOSE</span><span class="v">2.5</span></button>
+          <button class="freq" data-copy="2.2" type="button"><span class="n"><i class="dot"></i>BI</span><span class="v">2.2</span></button>
+          <button class="freq urg" data-copy="2.76" type="button"><span class="n"><i class="dot"></i>Canal d'urgence</span><span class="v">2.76</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="empty">AUCUN RÉSULTAT</div>
+</main>
+
+<footer>Obey &amp; Survive<small>Los Santos Police Department · Tableau de bord</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

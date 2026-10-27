@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrouilles · L.S.P.D</title>
+<meta name="description" content="Tableau de bord du Los Santos Police Department.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{if(sessionStorage.getItem('lspd-boot')==='1')document.documentElement.classList.add('booted')}catch(e){}</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-label="Chargement">
+  <div class="radar" aria-hidden="true"><i></i><i></i><b></b><img src="assets/logo.png" alt=""></div>
+  <div class="msg">ACCÈS AU TABLEAU DE BORD…</div>
+  <div class="track"><div class="fill"></div></div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo du LSPD">
+      <div><h1>L.S.P.D · Tableau de bord</h1><small>MDT · TERMINAL DE PATROUILLE</small></div>
+    </a>
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="q" type="search" placeholder="Rechercher dans cette page…  ( / )" aria-label="Rechercher dans la page">
+    </label>
+    <div class="clock" aria-live="off"><strong id="time">--:--:--</strong><br><span id="date"></span></div>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="index.html">Accueil</a>
+    <a href="frequences.html">Fréquences</a>
+    <a href="codes.html">Codes 10</a>
+    <a href="alertes.html">Alertes</a>
+    <a href="patrouilles.html" class="on" aria-current="page">Patrouilles</a>
+    <a href="miranda.html">Miranda</a>
+    <a href="route.html">Vitesse</a>
+    <a href="comparution.html">Comparution</a>
+    <a href="livret.html">Livret</a>
+  </nav>
+</header>
+
+<main>
+  <section id="patrouilles" class="reveal">
+    <div class="sec-h"><h2>Patrouilles</h2><span>INDICATIFS</span></div>
+    <div class="grid2" style="margin-bottom:20px">
+      <div class="panel">
+        <h3>Effectif</h3>
+        <div class="units filterable-units">
+          <div class="unit"><div class="ic">L</div><div><b>Lincoln</b><span>1 effectif</span></div></div>
+          <div class="unit"><div class="ic">A</div><div><b>Adam</b><span>2 effectifs</span></div></div>
+          <div class="unit"><div class="ic">T</div><div><b>Tango</b><span>3 effectifs</span></div></div>
+          <div class="unit"><div class="ic">X</div><div><b>X-Ray</b><span>4 effectifs</span></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Placement dans le véhicule</h3>
+        <div class="seats">
+          <div class="seat"><b>Conducteur</b><p>S'occupe uniquement de la conduite.</p></div>
+          <div class="seat"><b>Copilote</b><p>S'occupe des appels radio et de la vérification des plaques.</p></div>
+          <div class="seat"><b>Passager arrière</b><p>S'occupe du dispatch et des interactions avec les citoyens.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Patrouilles spécialisées</h3>
+      <div class="units filterable-units">
+        <div class="unit"><div class="ic">R</div><div><b>Roméo</b><span>Traffic Division (TD)</span></div></div>
+        <div class="unit"><div class="ic">W</div><div><b>William</b><span>Bureau of Investigation (BI)</span></div></div>
+        <div class="unit"><div class="ic">D</div><div><b>David</b><span>Opérateur NOOSE</span></div></div>
+        <div class="unit"><div class="ic">K</div><div><b>Kilo</b><span>Maître-chien (K9)</span></div></div>
+        <div class="unit"><div class="ic">M</div><div><b>Mary</b><span>Véhicule motorisé</span></div></div>
+        <div class="unit"><div class="ic">H</div><div><b>Hubert</b><span>Voies maritimes</span></div></div>
+        <div class="unit"><div class="ic">H</div><div><b>Henry</b><span>Voies aériennes</span></div></div>
+        <div class="unit"><div class="ic">V</div><div><b>Victor</b><span>Proximité à vélo</span></div></div>
+        <div class="unit"><div class="ic">S</div><div><b>Sierra</b><span>Surveillance en équipage SP / HG</span></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="empty">AUCUN RÉSULTAT</div>
+</main>
+
+<footer>Obey &amp; Survive<small>Los Santos Police Department · Tableau de bord</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codes d'alerte · L.S.P.D</title>
+<meta name="description" content="Tableau de bord du Los Santos Police Department.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{if(sessionStorage.getItem('lspd-boot')==='1')document.documentElement.classList.add('booted')}catch(e){}</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-label="Chargement">
+  <div class="radar" aria-hidden="true"><i></i><i></i><b></b><img src="assets/logo.png" alt=""></div>
+  <div class="msg">ACCÈS AU TABLEAU DE BORD…</div>
+  <div class="track"><div class="fill"></div></div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo du LSPD">
+      <div><h1>L.S.P.D · Tableau de bord</h1><small>MDT · TERMINAL DE PATROUILLE</small></div>
+    </a>
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="q" type="search" placeholder="Rechercher dans cette page…  ( / )" aria-label="Rechercher dans la page">
+    </label>
+    <div class="clock" aria-live="off"><strong id="time">--:--:--</strong><br><span id="date"></span></div>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="index.html">Accueil</a>
+    <a href="frequences.html">Fréquences</a>
+    <a href="codes.html">Codes 10</a>
+    <a href="alertes.html" class="on" aria-current="page">Alertes</a>
+    <a href="patrouilles.html">Patrouilles</a>
+    <a href="miranda.html">Miranda</a>
+    <a href="route.html">Vitesse</a>
+    <a href="comparution.html">Comparution</a>
+    <a href="livret.html">Livret</a>
+  </nav>
+</header>
+
+<main>
+  <section id="alertes" class="reveal">
+    <div class="sec-h"><h2>Codes d'alerte</h2><span>RÉPONSE</span></div>
+    <div class="panel">
+      <ul class="rows filterable">
+        <li><span class="c">Code 1</span><span class="d">Sans gyrophare ni sirène</span></li>
+        <li><span class="c">Code 2</span><span class="d">Gyrophare seul, sans sirène <span class="tag t-blue">PRIORITAIRE</span></span></li>
+        <li><span class="c">Code 3</span><span class="d">Gyrophare et sirène <span class="tag t-amber">URGENT</span></span></li>
+        <li><span class="c">Code 4</span><span class="d">Fin d'intervention, disponible <span class="tag t-green">DISPO</span></span></li>
+        <li><span class="c">Code 5</span><span class="d">En surveillance</span></li>
+        <li><span class="c">Code 6</span><span class="d">Pied à terre, repérage de l'intervention</span></li>
+        <li class="danger"><span class="c">Code 99</span><span class="d">Officier(s) en danger <span class="tag t-red">URGENCE</span></span></li>
+        <li class="danger"><span class="c">Charlie</span><span class="d">Code d'alerte d'officier(s) en difficulté</span></li>
+      </ul>
+    </div>
+  </section>
+  <div class="empty">AUCUN RÉSULTAT</div>
+</main>
+
+<footer>Obey &amp; Survive<small>Los Santos Police Department · Tableau de bord</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

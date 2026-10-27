@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitesse & amendes · L.S.P.D</title>
+<meta name="description" content="Tableau de bord du Los Santos Police Department.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{if(sessionStorage.getItem('lspd-boot')==='1')document.documentElement.classList.add('booted')}catch(e){}</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-label="Chargement">
+  <div class="radar" aria-hidden="true"><i></i><i></i><b></b><img src="assets/logo.png" alt=""></div>
+  <div class="msg">ACCÈS AU TABLEAU DE BORD…</div>
+  <div class="track"><div class="fill"></div></div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo du LSPD">
+      <div><h1>L.S.P.D · Tableau de bord</h1><small>MDT · TERMINAL DE PATROUILLE</small></div>
+    </a>
+
+    <div class="clock" aria-live="off"><strong id="time">--:--:--</strong><br><span id="date"></span></div>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="index.html">Accueil</a>
+    <a href="frequences.html">Fréquences</a>
+    <a href="codes.html">Codes 10</a>
+    <a href="alertes.html">Alertes</a>
+    <a href="patrouilles.html">Patrouilles</a>
+    <a href="miranda.html">Miranda</a>
+    <a href="route.html" class="on" aria-current="page">Vitesse</a>
+    <a href="comparution.html">Comparution</a>
+    <a href="livret.html">Livret</a>
+  </nav>
+</header>
+
+<main>
+  <section id="route" class="reveal">
+    <div class="sec-h"><h2>Vitesse &amp; amendes</h2><span>CODE DE LA ROUTE</span></div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Limitations de vitesse</h3>
+        <div class="limits">
+          <div class="sign"><div class="disc">50</div><span>Zone résidentielle</span></div>
+          <div class="sign"><div class="disc">90</div><span>En ville</span></div>
+          <div class="sign"><div class="disc">120</div><span>Hors agglomération</span></div>
+          <div class="sign"><div class="disc">160</div><span>Autoroute</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Excès de vitesse au radar</h3>
+        <table class="fines">
+          <thead><tr><th scope="col">Classe</th><th scope="col">Dépassement</th><th scope="col">Amende</th></tr></thead>
+          <tbody>
+            <tr><td>Première classe</td><td>Moins de 20 km/h<div class="meter"><i style="width:25%"></i></div></td><td class="m">1 000 $</td></tr>
+            <tr><td>Seconde classe</td><td>20 à 40 km/h<div class="meter"><i style="width:50%"></i></div></td><td class="m">1 500 $</td></tr>
+            <tr><td>Troisième classe</td><td>40 à 60 km/h<div class="meter"><i style="width:75%"></i></div></td><td class="m">2 500 $</td></tr>
+            <tr class="delit"><td>Délit</td><td>Plus de 60 km/h<div class="meter"><i style="width:100%"></i></div></td><td class="m">5 000 $</td></tr>
+          </tbody>
+        </table>
+        <p class="note">À la 3ᵉ récidive pour délit : retrait du permis et saisie du véhicule.</p>
+      </div>
+    </div>
+  </section>
+  <div class="empty">AUCUN RÉSULTAT</div>
+</main>
+
+<footer>Obey &amp; Survive<small>Los Santos Police Department · Tableau de bord</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

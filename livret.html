@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Livret des peines · L.S.P.D</title>
+<meta name="description" content="Tableau de bord du Los Santos Police Department.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{if(sessionStorage.getItem('lspd-boot')==='1')document.documentElement.classList.add('booted')}catch(e){}</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div id="boot" role="status" aria-label="Chargement">
+  <div class="radar" aria-hidden="true"><i></i><i></i><b></b><img src="assets/logo.png" alt=""></div>
+  <div class="msg">ACCÈS AU TABLEAU DE BORD…</div>
+  <div class="track"><div class="fill"></div></div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo du LSPD">
+      <div><h1>L.S.P.D · Tableau de bord</h1><small>MDT · TERMINAL DE PATROUILLE</small></div>
+    </a>
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="q" type="search" placeholder="Rechercher dans cette page…  ( / )" aria-label="Rechercher dans la page">
+    </label>
+    <div class="clock" aria-live="off"><strong id="time">--:--:--</strong><br><span id="date"></span></div>
+  </div>
+  <nav class="tabs" aria-label="Pages">
+    <a href="index.html">Accueil</a>
+    <a href="frequences.html">Fréquences</a>
+    <a href="codes.html">Codes 10</a>
+    <a href="alertes.html">Alertes</a>
+    <a href="patrouilles.html">Patrouilles</a>
+    <a href="miranda.html">Miranda</a>
+    <a href="route.html">Vitesse</a>
+    <a href="comparution.html">Comparution</a>
+    <a href="livret.html" class="on" aria-current="page">Livret</a>
+  </nav>
+</header>
+
+<main>
+  <section id="livret" class="reveal">
+    <div class="sec-h"><h2>Livret des peines</h2><span id="lv-count">GUIDE DE LA JUSTICE V7</span></div>
+    <div class="panel">
+      <div class="chips" id="lv-chips" role="group" aria-label="Filtrer par catégorie"></div>
+      <div class="cp-tablewrap">
+        <table class="pen-table">
+          <thead><tr>
+            <th scope="col">Article</th><th scope="col">Infraction</th><th scope="col">Catégorie</th>
+            <th scope="col" class="r">Amende</th><th scope="col" class="r">Détention</th>
+            <th scope="col" class="c">Procureur</th><th scope="col" class="c">Bracelet</th><th scope="col">Notes</th>
+          </tr></thead>
+          <tbody id="lv-body"></tbody>
+        </table>
+      </div>
+      <p class="note">LS = applicable uniquement sur Los Santos · BC = applicable uniquement à Blaine County.</p>
+    </div>
+  </section>
+  <div class="empty">AUCUN RÉSULTAT</div>
+</main>
+
+<footer>Obey &amp; Survive<small>Los Santos Police Department · Tableau de bord</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/justice.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
